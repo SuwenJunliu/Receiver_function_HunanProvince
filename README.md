@@ -28,6 +28,8 @@ An example of Receiver function inversion of Hunan province
     - [data](#data)
   - [Receiver Function Inversion Workflow](#receiver-function-inversion-workflow)
     - [Prepare the event file](#prepare-the-event-file)
+      - [QuickStart](#quickstart)
+      - [Procedure](#procedure)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
@@ -52,9 +54,17 @@ This package consists of several software, make sure that you have install these
 - [NA](http://rses.anu.edu.au/~malcolm/na/)
 - [RF_INV](https://github.com/akuhara/RF_INV)
 
+I strongly recommend [Obspy](https://github.com/obspy/obspy) for data preprocessing. The scripts written by python are read much easier than those written by sh/bash. If you install Obspy by anaconda, please make sure that the enviorment setting is correct.
+
+In order to run some Linux script, this serveral programs was demand
+
+- [taup_time](http://www.seis.sc.edu/taup/)
+- [hk1.3](http://www.eas.slu.edu/People/LZhu/downloads/hk1.3.tar )
+- []
+
 ## Setup
 
-```响应
+```
 git clone https://github.com/SuwenJunliu/Receiver_function_HunanProvince.git
 ```
 
@@ -72,7 +82,33 @@ The folder "./data" consists the data of Hunan Province in SAC format.
 
 ### Prepare the event file
 
+#### QuickStart
+```
+cd /prepareEventFile/
+python 
+```
+Then, you will find the event index in this folder.
 
+```
+python 
+```
+After that, the data of nature seismic event was created.
+
+#### Procedure
+The first thing for RF inversion is preparing SAC file of nature seismic event.
+Usually, I use Obspy to download the event index.
+The code could be found in 
+```
+./prepareEventFile/
+```
+Note that if your study area is in China, and the data was gather recently, the event may not be included by ISC. In this situation, you can download the event index from [CENC](http://news.ceic.ac.cn/index.html?time=1578326915).
+
+
+Once you prepare the event index, you could cut the event data form original record. Usually, the original record last one hour or much longer. In this project, I use python script to cut the event.
+The code could be found in 
+```
+./prepareEventFile/
+```
 
 
 
